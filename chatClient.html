@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple chat</title>
+</head>
+<body>
+    <input type="text" id="input" style="width: 100%; padding: 10px; border: solid black 2px;">
+    <script>
+        let nick = prompt("Escreva seu nome: ");
+        let input = document.querySelector("#input");
+        input.focus();
+
+        let chat = new EventSource("/chat");
+        chat.addEventListener("chat", event => {
+            let div = document.createElement("div");
+            div.append(event.data);
+            input.before(div);
+            input.scrollIntoView();
+        });
+
+        input.addEventListener("change", () => {
+            fetch("/chat", {
+                method: "POST",
+                body: nick + ": " + input.value
+            })
+            .catch(e => console.error);
+            input.value = "";
+        });
+    </script>
+</body>
+</html>

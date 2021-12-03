@@ -1,0 +1,23 @@
+{
+  "name": "conversafora",
+  "version": "1.0.0",
+  "description": "Simple chat in JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fboldt/conversafora.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Francisco Boldt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fboldt/conversafora/issues"
+  },
+  "homepage": "https://github.com/fboldt/conversafora#readme"
+}
