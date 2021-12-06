@@ -24,7 +24,7 @@
         input.addEventListener("change", () => {
             fetch("/chat", {
                 method: "POST",
-                body: "<b>" + nick + ":</b> " + input.value
+                body: nick + ": " + input.value
             })
             .catch(e => console.error);
             input.value = "";
